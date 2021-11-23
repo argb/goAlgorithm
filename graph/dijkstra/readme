@@ -1,0 +1,36 @@
+dijkstra algorithm based on the fact that:
+
+向当前的路径中插入一个新的节点后，可能会改变当前的最短路径
+
+比如：
+之前，北京-->上海，必须先经乌鲁木齐转车，也就是说, 北京-->乌鲁木齐-->上海
+但是现在，我在郑州修了个车站，显然"北京-->郑州-->上海"这条线要比之前的更优。
+当然，如果你新加的这个车站在莫斯科，那肯定还是途径乌鲁木齐更优。
+
+但是由此我们找到一个方法：
+每次增加一个节点，我都把之前的最优路径调整一遍，调整之后的路径就是新的最优路径。
+
+example:
+g := new(dijkstra.Graph)
+	g.InitTable(vertexes, len(vertexes), matrix)
+	//g.Matrix = matrix
+	g.Dijkstra(0, dist)
+
+Result:
+
+vertexes: [A B C D E F G]
+
+shortestDistance(A, B) = 4
+path:B<--C<--A
+
+shortestDistance(A, C) = 1
+path:C<--A
+
+shortestDistance(A, D) = 2
+path:D<--A
+
+shortestDistance(A, E) = 4
+path:E<--C<--A
+
+
+
