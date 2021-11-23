@@ -25,4 +25,5 @@ func main() {
 	g.InitTable(vertexes, len(vertexes), matrix)
 	//g.Matrix = matrix
 	g.Dijkstra(0, dist)
+
 }
